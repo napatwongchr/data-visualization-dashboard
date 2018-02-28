@@ -60,6 +60,21 @@ class BarChart extends Component {
     const yAxis = axisLeft(yScale)
                   .tickFormat(formatPrefix('.0', 1e6))
 
+    const text = select(node)
+          .selectAll('text')
+          .data(data)
+          .enter()
+          .append('text')
+
+    //
+    const textLabels = text
+                        .attr('x', (datum, index) => (barWidth + barPadding) * index + 10 )
+                        .attr('y', datum => yScale(datum.raisedAmt) - 5)
+                        .text(datum => datum.fundedDate)
+                        .attr('font-family', 'sans-serif')
+                        .attr('font-size', '10px')
+                        .attr('fill', '#000')
+
     // Update pattern
     select(node)
           .selectAll('rect')
@@ -81,6 +96,8 @@ class BarChart extends Component {
           .attr('y', datum => yScale(datum.raisedAmt))
           .attr('height', datum => height - yScale(datum.raisedAmt))
           .attr('width', barWidth)
+
+
 
     select(node)
           .append('g')
