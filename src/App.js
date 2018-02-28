@@ -23,6 +23,12 @@ class App extends Component {
 
           <div className='row mt-3'>
             <div className='col border corder-default'>
+              <h4>Map</h4>
+            </div>
+          </div>
+
+          <div className='row mt-3'>
+            <div className='col border corder-default'>
               <h4>Customchart</h4>
             </div>
           </div>

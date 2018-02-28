@@ -1,6 +1,15 @@
 This project is created for experiment on d3 with react.js
 
 ## Table of Contents
-  - BarChart
+  - Bar Chart
   - ScatterPlot
-  - SomeCustomChart
+  - Map Chart
+  - Custom Chart
+
+## Todos
+  - Responsive display for charts
+  - Tooltips
+  - Some animations ...
+
+## To run
+  `npm start`
