@@ -17,7 +17,7 @@ class BarChart extends Component {
     this.createBarChart = this.createBarChart.bind(this)
   }
 
-  componentWillMount () {
+  componentDidMount () {
     this.readCsvFile(this.createBarChart)
   }
 
@@ -36,12 +36,6 @@ class BarChart extends Component {
     })
   }
 
-  transformDateFormat (data) {
-    console.log(data.split('-'))
-    console.log(new Date(data))
-    return new Date(data)
-  }
-
   createBarChart () {
     const node = this.node
     const { data } = this.state
@@ -49,7 +43,7 @@ class BarChart extends Component {
     const barPadding = 10
     const barWidth = width / data.length - barPadding
     const svgPadding = 5
-    console.log(data)
+
     // Initiate x,y scale
     // yScale is on raisedAmt
     const yScale = scaleLinear()
@@ -60,18 +54,19 @@ class BarChart extends Component {
     const yAxis = axisLeft(yScale)
                   .tickFormat(formatPrefix('.0', 1e6))
 
+    // Select texts and add all texts in svg
     const text = select(node)
           .selectAll('text')
           .data(data)
           .enter()
           .append('text')
 
-    //
+    // Customize each text label
     const textLabels = text
                         .attr('x', (datum, index) => (barWidth + barPadding) * index + 10 )
                         .attr('y', datum => yScale(datum.raisedAmt) - 5)
                         .text(datum => datum.fundedDate)
-                        .attr('font-family', 'sans-serif')
+                        .attr('font-family', '"Open Sans", sans-serif')
                         .attr('font-size', '10px')
                         .attr('fill', '#000')
 
@@ -98,7 +93,7 @@ class BarChart extends Component {
           .attr('width', barWidth)
 
 
-
+    // Add y-axis
     select(node)
           .append('g')
           .attr('transform', 'translate(-5, 4)')

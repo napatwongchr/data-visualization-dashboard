@@ -1,0 +1,14 @@
+#root {
+  background-color: #f9f9f9;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.widget-box {
+  background-color: #ffffff;
+}
+
+
+/* material icon style */
+.material-icons.md-light {
+  color: rgba(255, 255, 255, 1);
+}

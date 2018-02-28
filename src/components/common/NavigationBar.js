@@ -4,7 +4,7 @@ class NavigationBar extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand" href="#">d3 dashboard</a>
+        <i class="material-icons md-light">dashboard</i><a className="navbar-brand ml-3 pt-2" href="#">d3 dashboard</a>
       </nav>
     )
   }

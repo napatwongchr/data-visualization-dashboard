@@ -13,22 +13,22 @@ class App extends Component {
         <NavigationBar />
         <div className='container mt-5'>
           <div className='row'>
-            <div className='col border corder-default mr-3'>
-                <BarChart width={500} height={250} />
+            <div className='col border border-default mr-3 widget-box'>
+              <BarChart width={500} height={250} />
             </div>
-            <div className='col border corder-default'>
-              <h4>Scatterplot</h4>
+            <div className='col border border-default widget-box'>
+              <ScatterplotChart width={500} height={250} />
             </div>
           </div>
 
           <div className='row mt-3'>
-            <div className='col border corder-default'>
+            <div className='col border border-default widget-box'>
               <h4>Map</h4>
             </div>
           </div>
 
           <div className='row mt-3'>
-            <div className='col border corder-default'>
+            <div className='col border border-default widget-box'>
               <h4>Customchart</h4>
             </div>
           </div>
