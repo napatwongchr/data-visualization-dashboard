@@ -12,19 +12,9 @@ class App extends Component {
       <div>
         <NavigationBar />
         <div className='container mt-5'>
-
           <div className='row'>
             <div className='col border corder-default mr-3'>
-              <div className='row'>
-                <div className='col'>
-                  <h4 className='pt-3'>Facebook fund raising data</h4>
-                </div>
-              </div>
-              <div className='row p-3'>
-                <div className='col'>
-                  <BarChart width={500} height={250} />
-                </div>
-              </div>
+                <BarChart width={500} height={250} />
             </div>
             <div className='col border corder-default'>
               <h4>Scatterplot</h4>

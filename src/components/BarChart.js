@@ -94,6 +94,7 @@ class BarChart extends Component {
     const { height, width } = this.props
     return (
       <div>
+        <h4 className='pt-3'>Facebook fund raising data</h4>
         <svg
           viewBox="0 0 500 250"
           style={{paddingLeft: '2.5em'}}
