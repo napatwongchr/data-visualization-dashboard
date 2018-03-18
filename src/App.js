@@ -1,13 +1,32 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-
 import NavigationBar from './components/common/NavigationBar'
 import ScatterplotChart from './components/Scatterplot'
 import CustomChartExample1 from './components/CustomChartExample1'
 import BarChart from './components/BarChart'
 
+import readCsvFile from './helpers/readCsvFile'
+import TechCrunchData from './data/TechCrunchcontinentalUSA.csv'
+
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      barChartData: [],
+      scatterPlotChartData: [],
+      customChartExample1Data: []
+    }
+  }
+
+  componentDidMount() {
+    readCsvFile(TechCrunchData, (data) => {
+      this.setState({
+        barChartData: data
+      })
+    })
+  }
+
   render() {
     return (
       <div>
@@ -15,7 +34,7 @@ class App extends Component {
         <div className='container mt-5'>
           <div className='row'>
             <div className='col border border-default mr-3 widget-box'>
-              <BarChart width={500} height={250} />
+              <BarChart data={this.state.barChartData} width={500} height={250} />
             </div>
             <div className='col border border-default widget-box'>
               <ScatterplotChart width={500} height={250} />
