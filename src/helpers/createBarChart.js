@@ -1,7 +1,7 @@
 import { extent } from 'd3-array'
 import { select } from 'd3-selection'
-import { scaleLinear, scaleTime } from 'd3-scale'
-import { axisBottom, axisLeft } from 'd3-axis'
+import { scaleLinear } from 'd3-scale'
+import { axisLeft } from 'd3-axis'
 import { formatPrefix } from 'd3-format'
 
 export default (node, data, width, height) => {
@@ -27,13 +27,13 @@ export default (node, data, width, height) => {
           .append('text')
 
     // Customize each text label
-    const textLabels = text
-                        .attr('x', (datum, index) => (barWidth + barPadding) * index + 10 )
-                        .attr('y', datum => yScale(datum.raisedAmt) - 5)
-                        .text(datum => datum.fundedDate)
-                        .attr('font-family', '"Open Sans", sans-serif')
-                        .attr('font-size', '10px')
-                        .attr('fill', '#000')
+    text
+      .attr('x', (datum, index) => (barWidth + barPadding) * index + 10 )
+      .attr('y', datum => yScale(datum.raisedAmt) - 5)
+      .text(datum => datum.fundedDate)
+      .attr('font-family', '"Open Sans", sans-serif')
+      .attr('font-size', '10px')
+      .attr('fill', '#000')
 
     // Update pattern
     select(node)
